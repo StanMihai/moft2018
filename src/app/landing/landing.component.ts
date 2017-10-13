@@ -8,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
 
 export class LandingComponent implements OnInit {
 
+  public muzee: number;
+  public bilete: number;
+  public teatru: number;
+  public film: number;
+
   constructor() { }
 
   ngOnInit() {}
