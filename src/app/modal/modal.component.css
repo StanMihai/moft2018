@@ -1,0 +1,8 @@
+.modal-header > h4 {
+    margin-top: 0px;
+}
+
+.validationClass {
+    color: #dc3545;
+    padding: 5px;
+}

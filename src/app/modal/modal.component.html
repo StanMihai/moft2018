@@ -1,0 +1,100 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{object.nume}}</h4>    
+</div>
+<div class="modal-body">
+  <p [innerHTML]="body"></p>
+  <p *ngIf="object.observatii" style="border-bottom: 2px solid black">
+    {{object.observatii}}
+  </p>
+  <br>
+  <p style="border-bottom: 2px solid black">
+      Adresa : {{object.adresa}}<br>
+      Site : <a href="object.site" target="_blank">{{object.site}}</a>
+  </p>
+  <br>  
+  <div *ngIf="showForm()">
+    <div *ngFor="let item of list; let i = index" class="form-check">
+      <label *ngIf="checkLocuri(item)" class="form-check-label">
+        <input class="form-check-input" type="radio" name="exampleRadios" (change)="add(i)" id="{{i}}" value="{{i}}">
+        {{item.nume}} , {{item.data}}, {{item.ora}}
+      </label>
+    </div>
+    <form [formGroup]="dataForm" (ngSubmit)="submitForm(dataForm)">
+      <div class="form-group">
+        <label for="nume">Nume</label>
+        <input type="text" class="form-control" id="nume" placeholder="Nume (obligatoriu)" formControlName="nume">
+        <div *ngIf="dataForm.controls['nume'].errors && !dataForm.controls['nume'].untouched">
+          <div class="validationClass" *ngIf="dataForm.controls['nume'].errors.minlength">
+            Mimim 2 caractere.
+          </div>
+          <div class="validationClass" *ngIf="dataForm.controls['nume'].errors.required">
+            Camp obligatoriu.
+          </div>
+        </div>        
+      </div>
+      <div class="form-group">
+        <label for="prenume">Prenume</label>
+        <input type="text" class="form-control" id="prenume" placeholder="Prenume (obligatoriu)" formControlName="prenume">
+        <div *ngIf="dataForm.controls['prenume'].errors && !dataForm.controls['prenume'].untouched">
+          <div class="validationClass" *ngIf="dataForm.controls['prenume'].errors.minlength">
+            Mimim 2 caractere.
+          </div>
+          <div class="validationClass" *ngIf="dataForm.controls['prenume'].errors.required">
+            Camp obligatoriu.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Email (obligatoriu)" formControlName="email">
+        <div *ngIf="dataForm.controls['email'].errors && !dataForm.controls['email'].untouched">
+          <div class="validationClass" *ngIf="dataForm.controls['email'].errors.minlength">
+            Mimim 7 caractere.
+          </div>
+          <div class="validationClass" *ngIf="dataForm.controls['email'].errors.required">
+            Camp obligatoriu.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="telefon">Telefon</label>
+        <input type="text" class="form-control" id="telefon" placeholder="Telefon (obligatoriu)" formControlName="telefon">
+        <div *ngIf="dataForm.controls['telefon'].errors && !dataForm.controls['telefon'].untouched">
+          <div class="validationClass" *ngIf="dataForm.controls['telefon'].errors.minlength">
+            Mimim 9 caractere.
+          </div>
+          <div class="validationClass" *ngIf="dataForm.controls['telefon'].errors.required">
+            Camp obligatoriu.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="facultate">Facultate</label>
+        <input type="text" class="form-control" id="facultate" placeholder="Facultate (obligatoriu)" formControlName="facultate">
+        <div *ngIf="dataForm.controls['facultate'].errors && !dataForm.controls['facultate'].untouched">
+          <div class="validationClass" *ngIf="dataForm.controls['facultate'].errors.minlength">
+            Mimim 3 caractere.
+          </div>
+          <div class="validationClass" *ngIf="dataForm.controls['facultate'].errors.required">
+            Camp obligatoriu.
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row" style="width: 100%">
+        <div class="col-md-6 text-center">
+          <button style="color: black" type="submit" class="btn btn-outline-dark">Trimite</button>
+        </div>
+        <div class="col-md-6 text-center">
+          <button style="color: black" type="button" class="btn btn-outline-dark" (click)="close()">Inchide</button>  
+        </div>
+      </div>      
+    </form>
+  </div>
+  <p *ngIf="!showForm()">
+    {{object.text}}
+  </p>
+</div>
+<div class="modal-footer" style="padding: 10px">
+  <div class="row" style="width: 100%"></div>  
+</div>

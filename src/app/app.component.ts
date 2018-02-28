@@ -29,10 +29,10 @@ export class AppComponent implements OnInit {
         this.renderer.listenGlobal('window', 'scroll', (event) => {
             const number = window.scrollY;
             if (number > 150 || window.pageYOffset > 150) {
-                // add logic
+                navbar.getElementsByClassName("imgLogoTop")[0].attributes[2].value = "../assets/img/logo/lsacColor.png";
                 navbar.classList.remove('navbar-transparent');
             } else {
-                // remove logic
+                navbar.getElementsByClassName("imgLogoTop")[0].attributes[2].value = "../assets/img/logo/lsac.png";
                 navbar.classList.add('navbar-transparent');
             }
         });
@@ -46,18 +46,6 @@ export class AppComponent implements OnInit {
         if (version) {
             var body = document.getElementsByTagName('body')[0];
             body.classList.add('ie-background');
-
         }
-
-    }
-    removeFooter() {
-        var titlee = this.location.prepareExternalUrl(this.location.path());
-        titlee = titlee.slice( 1 );
-        if(titlee === 'signup' || titlee === 'nucleoicons'){
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
+    }    
 }

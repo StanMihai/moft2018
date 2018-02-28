@@ -1,38 +1,47 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
-import { ProfileComponent } from './profile/profile.component';
-import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
-import { HomeModule } from './home/home.module';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { environment } from '../environments/environment';
+
+import { RestDataService } from './rest-data.service';
+import { ModalComponent } from './modal/modal.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SignupComponent,
-    LandingComponent,
-    ProfileComponent,
+    AppComponent,    
+    LandingComponent,    
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ModalComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,    
     NgbModule.forRoot(),
+    ScrollToModule.forRoot(),
     FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     AppRoutingModule,
-    HomeModule
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule    
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  entryComponents: [ ModalComponent ],
+  providers: [ RestDataService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

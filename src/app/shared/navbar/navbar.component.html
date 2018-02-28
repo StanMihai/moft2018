@@ -11,42 +11,21 @@
             </button>
         </div>
         <div class="collapse navbar-collapse" id="navbarToggler">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item" *ngIf="!isDocumentation()">
-                    <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
-                        <i class="fa fa-twitter"></i>
-                        <p class="d-lg-none">Twitter</p>
-                    </a>
-                </li>
-                <li class="nav-item" *ngIf="!isDocumentation()">
-                    <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank">
-                        <i class="fa fa-facebook-square"></i>
-                        <p class="d-lg-none">Facebook</p>
-                    </a>
-                </li>
-                <li class="nav-item" *ngIf="!isDocumentation()">
-                    <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank">
-                        <i class="fa fa-instagram"></i>
-                        <p class="d-lg-none">Instagram</p>
-                    </a>
-                </li>
-                <li class="nav-item" *ngIf="!isDocumentation()">
-                    <a class="nav-link" rel="tooltip" title="Star on GitHub" data-placement="bottom" href="https://www.github.com/CreativeTimOfficial/pk2-angular" target="_blank">
-                        <i class="fa fa-github"></i>
-                        <p class="d-lg-none">GitHub</p>
-                    </a>
+            <ul class="navbar-nav ml-auto">                
+                <li class="nav-item">
+                    <a class="nav-link pointer" [ngx-scroll-to]="'#acasa'">Acasa</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link" target="_blank">Acasa</a>
+                    <a class="nav-link pointer" [ngx-scroll-to]="'#despre'">Despre</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link" target="_blank">Despre</a>
+                    <a  class="nav-link pointer" [ngx-scroll-to]="'#bilete'">Bilete</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link" target="_blank">Parteneri</a>
+                    <a class="nav-link pointer" [ngx-scroll-to]="'#parteneri'">Parteneri</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link" target="_blank">Contact</a>
+                    <a class="nav-link pointer" [ngx-scroll-to]="'#contact'">Contact</a>
                 </li>                
                 <!-- <li class="nav-item" *ngIf="isHome()">
                     <a href="https://www.creative-tim.com/product/paper-kit-2-pro?ref=pk2-free-local" target="_blank" class="btn btn-danger btn-round disabled">Upgrade to Pro</a>

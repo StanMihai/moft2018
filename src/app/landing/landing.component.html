@@ -1,4 +1,4 @@
-<div class="page-header" data-parallax="true" style="background-image: url('../assets/img/background/chairs.jpg');">
+<div class="page-header" data-parallax="true" style="background-image: url('../assets/img/background/bg-mpft.jpg');" id="acasa">
     <div class="filter"></div>
     <div class="container">
         <div class="imgLogoMOFTBox">
@@ -6,180 +6,244 @@
         </div>        
     </div>
 </div>
-<div class="main">
+<div class="main" id="despre">
     <div class="section text-center">
-    <div class="container">        
-        <div class="row">
-            <div class="col-md-3">
-                <div class="info">
-                    <div class="icon">
-                        <h3></h3>
-                    </div>
-                    <div class="description">
-                        <h4 class="info-title">Muzee Partenere</h4>
-                        <p>Descriere</p>                        
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="info">
-                    <div class="icon icon-danger">
-                        <i class="nc-icon nc-bulb-63"></i>
-                    </div>
-                    <div class="description">
-                        <h4 class="info-title">Bilete Opera</h4>
-                        <p>Descriere</p>                        
+        <div class="container">   
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="red">
+                        <div class="text-danger">
+                            <h2>Ce este MOFT?</h2>
+                        </div>
+                        <div class="description">
+                            <br>
+                            <p>MOFT este cel mai mare eveniment cultural marca LSAC. Adresat tutror studenții bucureșteni, acesta se desfășoară în perioada 26 februarie – 3 martie și oferă bilete gratuit la muzeu, operă, film și teatru.</p>                        
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="info">
-                    <div class="icon icon-danger">
-                        <i class="nc-icon nc-chart-bar-32"></i>
-                    </div>
-                    <div class="description">
-                        <h4 class="info-title">Bilete Teatru</h4>
-                        <p>Descriere</p>                        
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="info">
-                    <div class="icon icon-danger">
-                        <i class="nc-icon nc-sun-fog-29"></i>
-                    </div>
-                    <div class="description">
-                        <h4 class="info-title">Bilete Film</h4>
-                        <p>Descriere</p>                        
+                <div class="col-md-4">
+                    <div class="info">
+                        <div class="text-success">
+                            <h2>Cum obții bilete?</h2>
+                        </div>
+                        <div class="description">
+                            <br>
+                            <p>Bilete se rezervă pe site. Acestea se vor ridică de la sediul Facultății de Automatică și Calculatoare pe baza carnetului de student cu o seară înainte. În caz contrar, se vor pune din nou pe site și altă persoană va putea beneficia de ele.</p>                        
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <br><br><br>
-        <div class="row">
-            <div class="col-md-8 mr-auto ml-auto">                
-                <h5 class="description">MOFT este cel mai mare eveniment de cultură pentru studenți marca LSAC și oferă studenților ocazia, GRATUIT, de a viziona filme, piese de teatru și operă sau expoziții în unele dintre cele mai imporante instituții de cultură din București.</h5>                              
-            </div>
-        </div>
-
+                <div class="col-md-4">
+                    <div class="info">
+                        <div class="text-primary">
+                            <h2>Noutăți</h2>                        
+                        </div>
+                        <div class="description">
+                            <br>
+                            <p>Urmăriți pagina de <a href="https://www.facebook.com/events/401476616946378/" target="_blank">Facebook</a> a evenimentului pentru a fi la curent cu ultimele detalii!</p>                        
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <br><br><br>   
         </div>
     </div>
 
-<div class="section section-dark text-center">
+    <div class="section">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1008.8500170240778!2d26.04799753465956!3d44.43508850101476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b201c5d9db3f3f%3A0xbdba58e7b0027a19!2sPrecis+Building%2C+University+Politehnica+of+Bucharest!5e0!3m2!1sro!2sro!4v1508112684154" width="100%" frameborder="0" style="border:0;height: 50vh" allowfullscreen></iframe>
+    </div>
+
+    <div class="section" id="bilete">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>Bilete</h1>
+                    <br><br>
+                </div>                
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <h2 class="red text-center">
+                        Muzee
+                    </h2>
+                    <br>
+                    <div *ngFor="let muzeu of muzeeList" class="text-center pointer">
+                        <h6 (click)="openModal(muzeu, 'Muzee', muzeu.nume)">{{muzeu.nume}}</h6>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h2 class="yellow text-center">
+                        Teatru
+                    </h2>
+                    <br>
+                    <div *ngFor="let teatru of teatruList" class="text-center pointer">
+                        <h6 (click)="openModal(teatru, 'Teatru', teatru.nume)">{{teatru.nume}}</h6>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <h2 class="blue text-center pointer">
+                        Film
+                    </h2>
+                    <br>
+                    <div class="text-center pointer">
+                        <h6 *ngIf="film" (click)="openModal(film, 'Filme', 'Happy Cinema')">{{film.nume}}</h6>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <h2 class="blue text-center pointer">
+                        Extra
+                    </h2>
+                    <br>
+                    <div *ngFor="let extra of extraList" class="text-center pointer">
+                        <h6 (click)="openModal(extra, 'Extra', extra.nume)">{{extra.nume}}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="ruler"></div>
+    </div>
+
+    <div class="section" id="parteneri">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>Parteneri</h1>
+                    <br><br>
+                </div>                
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/1.png">
+                </div>
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/2.png">
+                </div>
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/3.png">
+                </div>               
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/4.png">
+                </div>
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/7.png">
+                </div>
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/5.png">
+                </div>
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/6.png">
+                </div>                
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/8.png">
+                </div>
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/9.png">
+                </div>
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/10.png">
+                </div>
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/11.png">
+                </div>
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/12.png">
+                </div>
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/13.png">
+                </div>
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/14.png">
+                </div>
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/15.png">
+                </div>
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/21.png">
+                </div>
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/17.png">
+                </div>
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/18.png">
+                </div>
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/19.png">
+                </div>
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/20.png">
+                </div>
+                <div class="col-md-4 text-center displayMidFlex">
+                    <img class="imgLogo" src="../assets/img/parteneri/16.jpg">
+                </div>                
+            </div>            
+        </div>
+    </div>
+
+
+<div class="section section-dark backContact text-center" id="contact">
     <div class="container">
-        <h2 class="title">Let's talk about us</h2>
+        <h2 class="title">Contact</h2>
         <div class="row">
             <div class="col-md-4">
                 <div class="card card-profile card-plain">
                     <div class="card-avatar">
-                        <a href="#avatar"><img src="../assets/img/faces/clem-onojeghuo-3.jpg" alt="..."></a>
+                        <img src="../assets/img/contact/o.png" alt="...">
                     </div>
                     <div class="card-block">
-                        <a href="#paper-kit">
+                        <a>
                             <div class="author">
-                                <h4 class="card-title">Henry Ford</h4>
-                                <h6 class="card-category">Product Manager</h6>
+                                <h4 class="card-title">Oana Denisa-Emilia</h4>
+                                <h6 class="card-category">Manager Proiect</h6>
                             </div>
                         </a>
                         <p class="card-description text-center">
-                        Teamwork is so important that it is virtually impossible for you to reach the heights of your capabilities or make the money that you want without becoming very good at it.
+                            <span>denisa.oana@lsacbucuresti.ro</span>                            
                         </p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-twitter"></i></a>
-                        <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-google-plus"></i></a>
-                        <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-linkedin"></i></a>
-                    </div>
+                    </div>                    
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="card card-profile card-plain">
                     <div class="card-avatar">
-                        <a href="#avatar"><img src="../assets/img/faces/joe-gardner-2.jpg" alt="..."></a>
+                        <img src="../assets/img/contact/v.png" alt="...">
                     </div>
                     <div class="card-block">
-                        <a href="#paper-kit">
+                        <a>
                             <div class="author">
-                                <h4 class="card-title">Sophie West</h4>
-                                <h6 class="card-category">Designer</h6>
+                                <h4 class="card-title">Vlad Hoaghe</h4>
+                                <h6 class="card-category">Manager FR</h6>
                             </div>
                         </a>
                         <p class="card-description text-center">
-                        A group becomes a team when each member is sure enough of himself and his contribution to praise the skill of the others. No one can whistle a symphony. It takes an orchestra to play it.
+                            <span>vlad.hoaghe@lsacbucuresti.ro</span>                            
                         </p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-twitter"></i></a>
-                        <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-google-plus"></i></a>
-                        <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-linkedin"></i></a>
-                    </div>
+                    </div>                    
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="card card-profile card-plain">
                     <div class="card-avatar">
-                        <a href="#avatar"><img src="../assets/img/faces/erik-lucatero-2.jpg" alt="..."></a>
+                        <img src="../assets/img/contact/a.png" alt="...">
                     </div>
                     <div class="card-block">
-                        <a href="#paper-kit">
+                        <a>
                             <div class="author">
-                                <h4 class="card-title">Robert Orben</h4>
-                                <h6 class="card-category">Developer</h6>
+                                <h4 class="card-title">Drăghici Cristina-Roxana</h4>
+                                <h6 class="card-category">Manager PR</h6>
                             </div>
                         </a>
                         <p class="card-description text-center">
-                        The strength of the team is each individual member. The strength of each member is the team. If you can laugh together, you can work together, silence isn’t golden, it’s deadly.
+                            <span>cristina.draghici@lsacbucuresti.ro</span>                            
                         </p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-twitter"></i></a>
-                        <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-google-plus"></i></a>
-                        <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i class="fa fa-linkedin"></i></a>
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-    <div class="section landing-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 mr-auto ml-auto">
-                    <h2 class="text-center">Keep in touch?</h2>
-                    <form class="contact-form">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Name</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="nc-icon nc-single-02"></i>
-                                    </span>
-                                    <input type="text" class="form-control" placeholder="Name">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label>Email</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="nc-icon nc-email-85"></i>
-                                    </span>
-                                    <input type="text" class="form-control" placeholder="Email">
-                                </div>
-                            </div>
-                        </div>
-                        <label>Message</label>
-                        <textarea class="form-control" rows="4" placeholder="Tell us your thoughts and feelings..."></textarea>
-                        <div class="row">
-                            <div class="col-md-4 mr-auto ml-auto">
-                                <button class="btn btn-danger btn-lg btn-fill">Send Message</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
